@@ -1,5 +1,5 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-netpie",
   "version": "0.1.0",
   "description": "",
   "keywords": [
@@ -31,14 +31,10 @@
     "dist"
   ],
   "n8n": {
-    "n8nNodesApiVersion": 1,
-    "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
-    ],
+    "credentials": ["./credentials/NetpieApi.credentials.ts"],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "./nodes/NetpieSend/NetpieSend.node.ts",
+      "./nodes/NetpieRead/NetpieRead.node.ts"
     ]
   },
   "devDependencies": {
