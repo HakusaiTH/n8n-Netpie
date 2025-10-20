@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-netpie",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "NETPIE nodes for n8n — read device shadow and publish messages to NETPIE.",
   "keywords": [
     "n8n",
