@@ -1,24 +1,33 @@
 {
   "name": "n8n-nodes-netpie",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "NETPIE nodes for n8n — read device shadow and publish messages to NETPIE.",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n",
+    "n8n-community-node-package",
+    "netpie",
+    "iot",
+    "mqtt",
+    "shadow"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/HakusaiTH/n8n-Netpie#readme",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Phoovadet",
+    "email": "phoovadetnoobdev@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "git+https://github.com/HakusaiTH/n8n-Netpie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HakusaiTH/n8n-Netpie/issues"
   },
   "engines": {
-    "node": ">=20.15"
+    "node": ">=18"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "npx rimraf dist && tsc && gulp build:icons",
     "dev": "tsc --watch",
@@ -28,13 +37,21 @@
     "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "n8n": {
-    "credentials": ["./credentials/NetpieApi.credentials.ts"],
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/NetpieApi.credentials.js"
+    ],
     "nodes": [
-      "./nodes/NetpieSend/NetpieSend.node.ts",
-      "./nodes/NetpieRead/NetpieRead.node.ts"
+      "dist/nodes/NetpieRead/NetpieRead.node.js",
+      "dist/nodes/NetpieSend/NetpieSend.node.js"
     ]
   },
   "devDependencies": {
@@ -43,6 +60,7 @@
     "eslint-plugin-n8n-nodes-base": "^1.16.3",
     "gulp": "^5.0.0",
     "prettier": "^3.5.3",
+    "rimraf": "^6.0.1",
     "typescript": "^5.8.2"
   },
   "peerDependencies": {
